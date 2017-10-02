@@ -34,7 +34,8 @@ public class Series extends TreeMap<LocalDate, Double> {
         TimeSeries timeSeries = new TimeSeries(name);
         for (LocalDate localDate : keySet()) {
             Day convertedDay = DayUtil.buildDay(localDate);
-            timeSeries.add(convertedDay, get(localDate));
+            Double value = get(localDate);
+            timeSeries.add(convertedDay, value);
         }
         return timeSeries;
     }
