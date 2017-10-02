@@ -7,7 +7,7 @@ import org.apache.commons.math3.fitting.PolynomialCurveFitter;
 import org.apache.commons.math3.fitting.WeightedObservedPoints;
 import repository.stock_repository.StockRepository;
 import series_producer.ExpectedArgument;
-import series_producer.Limits;
+import series_producer.Limit;
 import series_producer.Series;
 
 import java.time.LocalDate;
@@ -84,8 +84,8 @@ public class PolyfitSeriesProducer extends SplitAdjustedSeriesProducer {
 
     @Override
     public ImmutableList<ExpectedArgument> getExpectedArguments() {
-        Limits limits = new Limits(0, 25);
-        ExpectedArgument coefficients = new ExpectedArgument("Number of Coefficients", limits, 1);
+        Limit limit = new Limit(0, 25);
+        ExpectedArgument coefficients = new ExpectedArgument("Number of Coefficients", limit, 1);
         return new ImmutableList<>(coefficients);
     }
 }

@@ -4,7 +4,7 @@ import descriptive_statistics.ListDescriptiveStatistics;
 import immutable.ImmutableList;
 import repository.stock_repository.StockRepository;
 import series_producer.ExpectedArgument;
-import series_producer.Limits;
+import series_producer.Limit;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -28,9 +28,9 @@ public class MaxsQuadraticMeansSeriesProducer extends MaxsSeriesProducer {
 
     @Override
     public ImmutableList<ExpectedArgument> getExpectedArguments() {
-        Limits limits = new Limits(1, 1000);
-        ExpectedArgument meansWindowSize = new ExpectedArgument("Maxs Window Size", limits, 356);
-        ExpectedArgument slopeWindowSize = new ExpectedArgument("Means Window Size", limits, 20);
+        Limit limit = new Limit(1, 1000);
+        ExpectedArgument meansWindowSize = new ExpectedArgument("Maxs Window Size", limit, 356);
+        ExpectedArgument slopeWindowSize = new ExpectedArgument("Means Window Size", limit, 20);
         return new ImmutableList<>(meansWindowSize, slopeWindowSize);
     }
 

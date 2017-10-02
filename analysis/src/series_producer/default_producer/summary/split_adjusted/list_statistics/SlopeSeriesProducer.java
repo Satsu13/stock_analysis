@@ -3,7 +3,7 @@ package series_producer.default_producer.summary.split_adjusted.list_statistics;
 import immutable.ImmutableList;
 import repository.stock_repository.StockRepository;
 import series_producer.ExpectedArgument;
-import series_producer.Limits;
+import series_producer.Limit;
 
 import java.time.LocalDate;
 import java.util.LinkedList;
@@ -45,8 +45,8 @@ public class SlopeSeriesProducer extends ListStatisticsSeriesProducer {
 
     @Override
     public ImmutableList<ExpectedArgument> getExpectedArguments() {
-        Limits limits = new Limits(1, 1000);
-        ExpectedArgument windowSize = new ExpectedArgument("Window Size", limits, 1);
+        Limit limit = new Limit(1, 1000);
+        ExpectedArgument windowSize = new ExpectedArgument("Window Size", limit, 1);
         return new ImmutableList<>(windowSize);
     }
 }

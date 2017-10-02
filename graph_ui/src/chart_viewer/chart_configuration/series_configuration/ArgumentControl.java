@@ -18,8 +18,8 @@ public class ArgumentControl extends GridPane {
     private void initMembers(ExpectedArgument expectedArgument) {
         name = new Label(expectedArgument.name + ":  ");
         spinnerSliderPane = new SpinnerSliderPane(
-                expectedArgument.limits.minimum,
-                expectedArgument.limits.maximum,
+                expectedArgument.limit.minimum,
+                expectedArgument.limit.maximum,
                 expectedArgument.defaultValue);
     }
 

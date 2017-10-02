@@ -12,7 +12,7 @@ import org.apache.commons.math3.linear.Array2DRowRealMatrix;
 import org.apache.commons.math3.linear.RealMatrix;
 import repository.stock_repository.StockRepository;
 import series_producer.ExpectedArgument;
-import series_producer.Limits;
+import series_producer.Limit;
 import series_producer.Series;
 
 import java.time.LocalDate;
@@ -30,17 +30,17 @@ public class KalmanSeriesProducertest extends SplitAdjustedSeriesProducer {
 
     @Override
     public ImmutableList<ExpectedArgument> getExpectedArguments() {
-        Limits limits = new Limits(1, 1000000);
-//        Limits limits = new Limits(1, 700);
-//        Limits limits = new Limits(0, 1000000000);
-        ExpectedArgument measurementNoise = new ExpectedArgument("Measurement Noise", limits, 1);
-        limits = new Limits(0, 700);
-//        limits = new Limits(0, 100000);
-        ExpectedArgument velocityInclusionDenominator = new ExpectedArgument("Velocity Inclusion Denominator", limits, 1);
-        ExpectedArgument noise1 = new ExpectedArgument("noise1", limits, 1);
-        ExpectedArgument noise2 = new ExpectedArgument("noise2", limits, 1);
-        ExpectedArgument noise3 = new ExpectedArgument("noise3", limits, 1);
-        ExpectedArgument noise4 = new ExpectedArgument("noise4", limits, 1);
+        Limit limit = new Limit(1, 1000000);
+//        Limit limit = new Limit(1, 700);
+//        Limit limit = new Limit(0, 1000000000);
+        ExpectedArgument measurementNoise = new ExpectedArgument("Measurement Noise", limit, 1);
+        limit = new Limit(0, 700);
+//        limit = new Limit(0, 100000);
+        ExpectedArgument velocityInclusionDenominator = new ExpectedArgument("Velocity Inclusion Denominator", limit, 1);
+        ExpectedArgument noise1 = new ExpectedArgument("noise1", limit, 1);
+        ExpectedArgument noise2 = new ExpectedArgument("noise2", limit, 1);
+        ExpectedArgument noise3 = new ExpectedArgument("noise3", limit, 1);
+        ExpectedArgument noise4 = new ExpectedArgument("noise4", limit, 1);
         return new ImmutableList<>(measurementNoise, velocityInclusionDenominator, noise1, noise2, noise3, noise4);
     }
 

@@ -3,7 +3,7 @@ package series_producer.default_producer.summary.split_adjusted.list_statistics.
 import immutable.ImmutableList;
 import repository.stock_repository.StockRepository;
 import series_producer.ExpectedArgument;
-import series_producer.Limits;
+import series_producer.Limit;
 
 import java.time.LocalDate;
 import java.util.LinkedList;
@@ -51,10 +51,10 @@ public class QuadraticMeansSlopeSeriesProducer extends QuadraticMeansSeriesProdu
 
     @Override
     public ImmutableList<ExpectedArgument> getExpectedArguments() {
-        Limits limits = new Limits(1, 1000);
-        ExpectedArgument meansWindowSize = new ExpectedArgument("Means Window Size", limits, 20);
-        limits = new Limits(1, 1000);
-        ExpectedArgument slopeWindowSize = new ExpectedArgument("Slope Window Size", limits, 100);
+        Limit limit = new Limit(1, 1000);
+        ExpectedArgument meansWindowSize = new ExpectedArgument("Means Window Size", limit, 20);
+        limit = new Limit(1, 1000);
+        ExpectedArgument slopeWindowSize = new ExpectedArgument("Slope Window Size", limit, 100);
         return new ImmutableList<>(meansWindowSize, slopeWindowSize);
     }
 

@@ -4,7 +4,7 @@ import descriptive_statistics.ListDescriptiveStatistics;
 import immutable.ImmutableList;
 import repository.stock_repository.StockRepository;
 import series_producer.ExpectedArgument;
-import series_producer.Limits;
+import series_producer.Limit;
 import series_producer.default_producer.summary.split_adjusted.list_statistics.ListStatisticsSeriesProducer;
 
 import java.time.LocalDate;
@@ -21,8 +21,8 @@ public abstract class DefaultListStatisticsSeriesProducer extends ListStatistics
 
     @Override
     public ImmutableList<ExpectedArgument> getExpectedArguments() {
-        Limits limits = new Limits(1, 1000);
-        ExpectedArgument windowSize = new ExpectedArgument("Window Size", limits, 100);
+        Limit limit = new Limit(1, 1000);
+        ExpectedArgument windowSize = new ExpectedArgument("Window Size", limit, 100);
         return new ImmutableList<>(windowSize);
     }
 
